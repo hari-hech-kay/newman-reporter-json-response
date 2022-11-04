@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Paramagnetic/newman-reporter-json-light.git"
   },
   "dependencies": {
-    "newman": "^3.0.1"
+    "newman": "^3.10.0"
   },
   "author": "Treb Stewart",
   "license": "ISC",

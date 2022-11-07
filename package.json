@@ -1,22 +1,22 @@
 {
-  "name": "newman-reporter-json-light",
-  "version": "1.0.7",
-  "description": "Reporter which cuts out a bunch of unnecessary items in the Newman JSON report. This can help get around issues with JSON.stringify running out of memory. It still uses JSON.stringify, but since it has a fraction of the data it is far less likely to run into 'RangeError: Invalid string length",
+  "name": "newman-reporter-json-response",
+  "version": "1.0.1",
+  "description": "JSON Reporter which cuts out a bunch of unnecessary items in the **Newman JSON report** and also provides **JSON response body** for responses with Content-Type as *application/json*. This can help get around issues with JSON.stringify running out of memory. It still uses JSON.stringify, but since it has a fraction of the data it is far less likely to run into 'RangeError: Invalid string length",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Paramagnetic/newman-reporter-json-light.git"
+    "url": "git+https://github.com/hari-hech-kay/newman-reporter-json-response.git"
   },
   "dependencies": {
     "newman": "^3.10.0"
   },
-  "author": "Treb Stewart",
+  "author": "Harikrishnan G",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Paramagnetic/newman-reporter-json-light/issues"
+    "url": "https://github.com/hari-hech-kay/newman-reporter-json-response/issues"
   },
-  "homepage": "https://github.com/Paramagnetic/newman-reporter-json-light#readme"
+  "homepage": "https://github.com/hari-hech-kay/newman-reporter-json-response#readme"
 }

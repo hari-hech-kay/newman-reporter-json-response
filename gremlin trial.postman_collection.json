@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "97190f21-8480-48cb-9d9e-8aec7ac5f94d",
+		"name": "gremlin trial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delayed Long poll",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"setTimeout(function(){},3000);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Poll until success / failure\", function () {\r",
+							"    var retryCount = pm.collectionVariables.get(\"maxRetry\");\r",
+							"    var jsonData = pm.response.json();\r",
+							"    console.log(retryCount);\r",
+							"    if(jsonData.carts.length != 20 && retryCount > 0){\r",
+							"        pm.collectionVariables.set(\"maxRetry\", --retryCount);\r",
+							"        postman.setNextRequest(pm.info.requestName);\r",
+							"    }\r",
+							"    pm.expect(jsonData.carts.length).to.equal(21);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://dummyjson.com/carts",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"carts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "maxRetry",
+			"value": "3"
+		}
+	]
+}
